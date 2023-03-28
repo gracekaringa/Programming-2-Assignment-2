@@ -23,7 +23,7 @@ class Vehicle{
         };
 
         int main(){
-            Vehicle car;
+            Vehicle v1;
             string make, model, engine_number;
             float sale_price;
 
@@ -36,9 +36,8 @@ class Vehicle{
             cout<<"Enter the sale price of the vehicle:";
             cin>>sale_price;
 
-            car.set_vehicle(make, model, engine_number,sale_price);
-            cout<<"he profit earned frm the profit is:"<<car.get_profit()<<endl;
+            v1.set_vehicle(make, model, engine_number,sale_price);
+            cout<<"Profit earned is:"<<v1.get_profit()<<endl;
 
             return 0;
         }
-
