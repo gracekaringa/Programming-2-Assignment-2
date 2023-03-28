@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Voter{
@@ -32,7 +33,7 @@ class Voter{
         gender = "";
     }
 
-    // Function to add a new voter
+    // Function for adding a new voter
     void add_voter(){
         reset_voter(); // reset all member variables to default values before adding a new voter
         cout<<"Enter your voter card ID: ";
@@ -64,9 +65,20 @@ class Voter{
 };
 
 int main(){
-    Voter v;
-    v.add_voter();
-    cout<<endl<<"Voter details:"<<endl;
-    v.display_voter();
-    return 0;
+    vector<Voter> voters; // creates a vector to store all voters
+    string command; // create a variable to store user commands
+
+    // loop to input voters until user chooses to stop
+    while (true) {
+        Voter v;
+        v.add_voter();
+        voters.push_back(v); // add the new voter to the vector
+
+        // ask user if they want to continue or stop
+        cout << "Enter 'exit' to stop adding voters, or any other key to continue: ";
+        cin >> command;
+        if (command == "exit") {
+            break; // exit the loop if user types "exit"
+        }
+    }
 }
