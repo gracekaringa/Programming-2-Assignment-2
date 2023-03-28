@@ -58,9 +58,9 @@ public:
 
 int main() {
     book_database db;
-    db.add_book(book("J.K. Rowling", 19.99, "Harry Potter and the Philosopher's Stone", 1, 5));
-    db.add_book(book("George Orwell", 10.99, "1984", 2, 3));
-    db.add_book(book("F. Scott Fitzgerald", 8.99, "The Great Gatsby", 3, 7));
+    db.add_book(book("Sepherene", 8.50, "Disequilibrium", 1, 10));
+    db.add_book(book("Lauren Kate", 8.99, "Fallen", 2, 15));
+    db.add_book(book("Dan Brown", 8.99, "Inferno", 3, 18));
     db.display_books();
     return 0;
 }
