@@ -14,32 +14,52 @@ class Voter{
     string gender;
 
     public:
-        //ask user for personal information
+    // Constructor to initialize all member variables
+    Voter() : voter_card_id(""), national_id_number(""), first_name(""), middle_name(""), surname(""), polling_station(""), date_of_birth(""), gender("") {}
+
+    // Destructor to clean up memory if needed
+    ~Voter() {}
+
+    // Function to set all member variables to their default values
+    void reset_voter() {
+        voter_card_id = "";
+        national_id_number = "";
+        first_name = "";
+        middle_name = "";
+        surname = "";
+        polling_station = "";
+        date_of_birth = "";
+        gender = "";
+    }
+
+    // Function to add a new voter
     void add_voter(){
-        cout<<"Enter your voter card ID:";
+        reset_voter(); // reset all member variables to default values before adding a new voter
+        cout<<"Enter your voter card ID: ";
         cin>>voter_card_id;
-        cout<<"Enter your national ID:";
+        cout<<"Enter your national ID: ";
         cin>>national_id_number;
-        cout<<"Enter your first name:";
+        cout<<"Enter your first name: ";
         cin>>first_name;
-        cout<<"Enter your middle name:";
+        cout<<"Enter your middle name: ";
         cin>>middle_name;
-        cout<<"Enter your surname:";
+        cout<<"Enter your surname: ";
         cin>>surname;
-        cout<<"Enter polling station:";
+        cout<<"Enter polling station: ";
         cin>>polling_station;
-        cout<<"Enter date of birth(in dd-mm-yyyy format):";
+        cout<<"Enter date of birth (in dd-mm-yyyy format): ";
         cin>>date_of_birth;
-        cout<<"Enter your gender:";
+        cout<<"Enter your gender: ";
         cin>>gender;
     }
-    // displays information entered by the user
+
+    // Function to display voter details
     void display_voter(){
-        cout<<"Voter card ID:"<<voter_card_id<<endl;
-        cout<<"National ID number:"<<national_id_number<<endl;
-        cout<<"Name:"<<first_name<<" "<<middle_name<<" "<<surname<<endl;
-        cout<<"Date of birth:"<<date_of_birth<<endl;
-        cout<<"Gender:"<<gender<<endl;
+        cout<<"Voter card ID: "<<voter_card_id<<endl;
+        cout<<"National ID number: "<<national_id_number<<endl;
+        cout<<"Name: "<<first_name<<" "<<middle_name<<" "<<surname<<endl;
+        cout<<"Date of birth: "<<date_of_birth<<endl;
+        cout<<"Gender: "<<gender<<endl;
     }
 };
 
