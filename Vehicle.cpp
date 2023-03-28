@@ -7,26 +7,38 @@ class Vehicle{
     string make;
     string model;
     string engine_number;
-    double sale_price;
+    float sale_price;
 
     public:
-    void set_vehicle(string mk, string md, string en, double sp){
-        make=mk;
-        model=md;
-        engine_number=en;
-        sale_price=sp;
+    void set_vehicle(string m, string mod, string en, float sp){
+        make = m;
+        model = mod;
+        engine_number = en;
+        sale_price = sp;
     }
-            double get_profit(){
-                return 0.15*sale_price;
+            float get_profit(){
+                float profit = sale_price * 0.15;
+                return profit;
             }
         };
 
         int main(){
             Vehicle car;
-            car.set_vehicle("Nissan", "Sunny", "123456789", 20000.0);
-            cout<<"Profit:"<<car.get_profit()<<endl;
+            string make, model, engine_number;
+            float sale_price;
+
+            cout<<"Enter the make of the vehicle:";
+            cin>>make;
+            cout<<"Enter the model of the vehicle:";
+            cin>>model;
+            cout<<"Enter the engine_number of the vehicle:";
+            cin>>engine_number;
+            cout<<"Enter the sale price of the vehicle:";
+            cin>>sale_price;
+
+            car.set_vehicle(make, model, engine_number,sale_price);
+            cout<<"he profit earned frm the profit is:"<<car.get_profit()<<endl;
 
             return 0;
         }
-
 
