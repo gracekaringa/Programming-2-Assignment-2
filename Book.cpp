@@ -1,52 +1,67 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
-using namespace std;
-
-class Book {
-public:
-    Book(const string& author, double price, const string& title, int book_number, int num_copies)
-        : author_(author), price_(price), title_(title), book_number_(book_number), num_copies_(num_copies) {}
-
-    void Insert() {
-        // Insert a new book record into the database
-        // (in this example, we just push_back() to a vector)
-        book_list_.push_back(*this);
-    }
-
-    static void DisplayAll() {
-        // Display a list of all books in the database
-        for (const auto& book : book_list_) {
-            cout << "Author: " << book.author_ << endl;
-            cout << "Title: " << book.title_ << endl;
-            cout << "Price: " << book.price_ << endl;
-            cout << "Book number: " << book.book_number_ << endl;
-            cout << "Number of copies: " << book.num_copies_ << endl;
-            cout << endl;
-        }
-    }
-
+class book {
 private:
-    string author_;
-    double price_;
-    string title_;
-    int book_number_;
-    int num_copies_;
+    std::string author;
+    double price;
+    std::string title;
+    int book_number;
+    int num_copies;
+public:
+    book(std::string a, double p, std::string t, int bn, int nc) : author(a), price(p), title(t), book_number(bn), num_copies(nc) {}
 
-    static vector<Book> book_list_;
+    std::string get_author() const {
+        return author;
+    }
+
+    double get_price() const {
+        return price;
+    }
+
+    std::string get_title() const {
+        return title;
+    }
+
+    int get_book_number() const {
+        return book_number;
+    }
+
+    int get_num_copies() const {
+        return num_copies;
+    }
+
+    void set_num_copies(int nc) {
+        num_copies = nc;
+    }
+
+    void print() const {
+        std::cout << "Book number: " << book_number << ", title: " << title << ", author: " << author << ", price: " << price << ", copies: " << num_copies << std::endl;
+    }
 };
 
-vector<Book> Book::book_list_;
+class book_database {
+private:
+    std::vector<book> books;
+public:
+    void add_book(const book& b) {
+        books.push_back(b);
+    }
+
+    void display_books() const {
+        for (const auto& b : books) {
+            b.print();
+        }
+    }
+};
 
 int main() {
-    // Test the program
-    Book b1("John Doe", 10.99, "The Great Gatsby", 12345, 3);
-    b1.Insert();
-    Book b2("Jane Smith", 8.99, "To Kill a Mockingbird", 67890, 2);
-    b2.Insert();
-    Book::DisplayAll();
-
+    book_database db;
+    db.add_book(book("J.K. Rowling", 19.99, "Harry Potter and the Philosopher's Stone", 1, 5));
+    db.add_book(book("George Orwell", 10.99, "1984", 2, 3));
+    db.add_book(book("F. Scott Fitzgerald", 8.99, "The Great Gatsby", 3, 7));
+    db.display_books();
     return 0;
 }
 
