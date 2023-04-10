@@ -1,5 +1,5 @@
 #include<iostream>
-
+using namespace std;
 //base class Computer
 class Computer
 {
@@ -10,21 +10,20 @@ class Computer
     //functions
     void turnOn()
     {
-        std::cout<<"Computer is turned on"<<std::end1;
+        cout<<"Computer is turned on"<< endl;
     }
 };
 
 //derived class Client
-class Client;
-public Computer
+class Client:public Computer
 {
     public:
-    /data
+    //data
     int numClients;
     //functions
     void connect()
 {
-    std::cout<<"Client is connected to the server"<< std::end1;
+   cout<<"Client is connected to the server"<< endl;
 }
 };
 
@@ -37,7 +36,7 @@ class Server : public Computer
     //functions
     void server()
     {
-        std::cout<<"Server is serving the clients"<< std::end1;
+        cout<<"Server is serving the clients"<< endl;
     }
 };
 
